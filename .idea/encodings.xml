@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/BaseBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/ExceptionHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/FormStatus.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/IBaseDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/IService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/JsonDateSerializer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/JsonResult.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/MessageStatus.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/PageResult.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/message/frame/ServiceRuntimeException.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

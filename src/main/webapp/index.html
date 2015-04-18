@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>图文消息编辑</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/index.css">
+</head>
+<body>
+<div class="container">
+    <h1>图文消息</h1>
+    <div class="created">
+        <label class="title">标题</label>
+    </div>
+    <div class="main">
+        <form id="form" method="post" action="">
+            <label class="title">标题</label>
+            <span class="titleInBox">
+                <input type="text" name="title" class="titleIn" max-length="64">
+                <em>0/64</em>
+            </span>
+            <label class="title">作者（选填）</label>
+            <span class="titleInBox">
+                <input type="text" name="author" class="titleIn" max-length="64">
+                <em>0/64</em>
+            </span>
+            <label class="title">封面（大图片建议尺寸：900像素 * 500像素）</label>
+            <span class="btnBox">
+                <a class="upload">上传</a>
+                <a class="selectFromLibrary">从图片库选择</a>
+            </span>
+            <p class="frm_tips">
+                <label for="" class="frm_checkbox_label js_show_cover_pic selected">
+                    <i class="icon_checkbox"></i>
+                    <input type="checkbox" class="frm_checkbox" checked="">
+                    封面图片显示在正文中
+                </label>
+            </p>
+            <script type="text/plain" id="content" name="content">
+                <p>欢迎使用网页编辑器</p>
+            </script>
+            <input id="submit" type="button" value="保存">
+            <input id="preview" type="button" value="预览" style="display: none;"/>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="jslib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="jslib/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="jslib/ueditor/editor_api.js"></script>
+<script type="text/javascript">
+    var editor_a = UE.getEditor('content',
+            {
+                toolbars:[
+                    ['FullScreen',"fontfamily","fontsize","|","blockquote","horizontal","|","removeformat","link","unlink","|","simpleupload","insertimage","insertvideo"],
+                    ["bold","italic","underline","forecolor","backcolor","|","justifyleft","justifycenter","justifyright","|","rowspacingtop","rowspacingbottom","lineheight","|","insertorderedlist","insertunorderedlist","|","imagenone","imageleft","imageright","imagecenter"]
+                ],
+                initialFrameHeight:500
+            }
+    );
+    $(function(){
+        var url = "";
+        $("form").on('submit', function () {
+            var formData = $("form").serialize();
+            $.post("/message/save", formData, function (data) {
+                if (data.code == 1) {
+                    url = window.location.protocol +"//"+ window.location.host + "/message/print?uuid=" + data.data;
+                    $('#preview').show();
+                }
+                alert(data.msg);
+            });
+            return false; //禁用默认表单提交事件
+        });
+
+        $('#preview').on('click',function(){
+            window.open(url,"预览页","width=360,height=640,top=50%,left=50%,resizable=yes")
+        });
+        $('#submit').on('click', function () {
+            $("form").submit();
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+body { line-height: 1.6; font-family: "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "\9ED1\4F53", Arial, sans-serif; color: #222; font-size: 14px; }
+video,audio,img{ width: 100%;display: block;}
+h3{display: block; margin: 20px auto; text-align: center;}
+.time{ font-size: 12px; display: inline-block;}
+.author{ font-size: 12px; display: inline-block;margin-left:20px;}
+
+
+
