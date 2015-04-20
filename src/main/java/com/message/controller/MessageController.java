@@ -28,7 +28,7 @@ public class MessageController {
     @Autowired
     MessageService messageService;
 
-    @RequestMapping("/save")
+    @RequestMapping("/save.do")
     @ResponseBody
     public JsonResult save(HttpServletRequest request, HttpServletResponse response,
                            @ModelAttribute("message") Message message,BindingResult bResult){
@@ -41,7 +41,7 @@ public class MessageController {
         return new JsonResult(MessageStatus.MS_SUCCESS,MessageStatus.getStatusText(MessageStatus.MS_SUCCESS),message.getUuid());
     }
 
-    @RequestMapping("/print")
+    @RequestMapping("/print.do")
     public String print(HttpServletRequest request, HttpServletResponse response){
         String uuid = request.getParameter("uuid");
         MessageExample messageExample = new MessageExample();

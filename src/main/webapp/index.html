@@ -53,6 +53,10 @@
                     ['FullScreen',"fontfamily","fontsize","|","blockquote","horizontal","|","removeformat","link","unlink","|","simpleupload","insertimage","insertvideo"],
                     ["bold","italic","underline","forecolor","backcolor","|","justifyleft","justifycenter","justifyright","|","rowspacingtop","rowspacingbottom","lineheight","|","insertorderedlist","insertunorderedlist","|","imagenone","imageleft","imageright","imagecenter"]
                 ],
+                //关闭字数统计
+                wordCount:false,
+                //关闭elementPath
+                elementPathEnabled:false,
                 initialFrameHeight:500
             }
     );
@@ -60,9 +64,9 @@
         var url = "";
         $("form").on('submit', function () {
             var formData = $("form").serialize();
-            $.post("/message/save", formData, function (data) {
+            $.post("./service/message/save.do", formData, function (data) {
                 if (data.code == 1) {
-                    url = window.location.protocol +"//"+ window.location.host + "/message/print?uuid=" + data.data;
+                    url = window.location.toString() + "/service/message/print.do?uuid=" + data.data;
                     $('#preview').show();
                 }
                 alert(data.msg);
